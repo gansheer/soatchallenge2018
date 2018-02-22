@@ -12,4 +12,12 @@ public class Info {
         this.nom = nom;
         this.valeurs = valeurs;
     }
+
+    @Override
+    public String toString() {
+        return "Info{" +
+                "nom='" + nom + '\'' +
+                ", valeurs=" + valeurs +
+                '}';
+    }
 }
