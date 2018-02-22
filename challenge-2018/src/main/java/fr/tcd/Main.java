@@ -1,9 +1,11 @@
 package fr.tcd;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import fr.tcd.input.DataReader;
 import fr.tcd.input.Input;
+import fr.tcd.result.ResultLine;
 import fr.tcd.result.ResultWriter;
 
 public class Main {
@@ -15,7 +17,7 @@ public class Main {
     private static void runOnDataset(final String dataset) {
         try {
             final Input data = DataReader.load(dataset);
-            final Object result = Algo.run(data);
+            final List<ResultLine> result = Algo.run(data);
             ResultWriter.write(dataset, result);
         } catch (final Exception e) {
             e.printStackTrace();
