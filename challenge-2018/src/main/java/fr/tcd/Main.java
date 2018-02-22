@@ -18,7 +18,7 @@ public class Main {
         try {
             final Input data = DataReader.load(dataset);
             final List<ResultLine> result = Algo.run(data);
-            ResultWriter.write(dataset, result);
+            ResultWriter.write(dataset, result, data.p);
         } catch (final Exception e) {
             e.printStackTrace();
         }

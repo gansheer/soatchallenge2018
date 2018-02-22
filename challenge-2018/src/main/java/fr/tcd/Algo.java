@@ -14,18 +14,17 @@ import fr.tcd.result.ResultLine;
  */
 public class Algo {
 
-    public static List<ResultLine> run(final Input data) {
-    	Optional<Info> info = data.infos.stream().findFirst();
-    	Optional<Integer> montantInvesti = info.get().valeurs.stream()
-    			.filter(valeur -> valeur < data.c)
-    			.sorted(Comparator.reverseOrder())
-    			.findFirst();
-    	ResultLine oneResult = new ResultLine();
-    	oneResult.dayIn = 0;
-    	oneResult.dayOut = 20;
-    	oneResult.action = "ALLOUT";
-    	oneResult.nom = info.get().nom;
-    	oneResult.montant = montantInvesti.get();
-        return Arrays.asList(oneResult);
-    }
+	public static List<ResultLine> run(final Input data) {
+		Optional<Info> info = data.infos.stream().findFirst();
+		Optional<Integer> montantInvesti = info.get().valeurs.stream().filter(valeur -> valeur < data.c)
+				.sorted(Comparator.reverseOrder()).findFirst();
+		ResultLine oneResult = new ResultLine();
+		oneResult.nom = info.get().nom;
+		oneResult.actions.add("" + montantInvesti.get());
+		for (int i = 0; i < data.p - 2; i++) {
+			oneResult.actions.add("0");
+		}
+		oneResult.actions.add("ALLOUT");
+		return Arrays.asList(oneResult);
+	}
 }

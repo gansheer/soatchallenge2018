@@ -10,12 +10,12 @@ import org.apache.commons.io.FileUtils;
 
 public class ResultWriter {
 
-    public static void write(String dataset, List<ResultLine> data) throws IOException {
-        FileUtils.writeLines(new File(dataset + ".txt"), getLines(data));
+    public static void write(String dataset, List<ResultLine> data, int nbDays) throws IOException {
+        FileUtils.writeLines(new File(dataset + ".txt"), getLines(data, nbDays));
 
     }
 
-    private static Collection<String> getLines(final List<ResultLine> data) {
-    	return data.stream().map(line -> line.printLine(9)).collect(Collectors.toList());
+    private static Collection<String> getLines(final List<ResultLine> data, int nbDays) {
+    	return data.stream().map(line -> line.printLine(nbDays)).collect(Collectors.toList());
     }
 }
