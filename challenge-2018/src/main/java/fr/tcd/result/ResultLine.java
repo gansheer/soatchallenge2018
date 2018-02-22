@@ -1,6 +1,7 @@
 package fr.tcd.result;
 
 public class ResultLine {
+	public String nom;
 	public int montant;
 	public String action;
 	public int dayIn;
