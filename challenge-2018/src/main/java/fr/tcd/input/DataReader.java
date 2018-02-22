@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  */
 public class DataReader {
 
-    public static Object load(final String dataset) {
+    public static Input load(final String dataset) {
         try {
             final List<String> lines = Files.readAllLines(Paths.get("src/main/resources/", dataset));
             final int[] split = Stream.of(lines.get(0).split("\\s+")).mapToInt(Integer::valueOf).toArray();
@@ -22,8 +22,7 @@ public class DataReader {
                     .map(l -> l.split("\\s+"))
                     .map(DataReader::toInfo)
                     .collect(Collectors.toList());
-            new Input(split[0], split[1], split[2], split[3], infos);
-            return null;
+            return new Input(split[0], split[1], split[2], split[3], infos);
         } catch (IOException e) {
             throw new RuntimeException("Failed to load file", e);
         }

@@ -1,9 +1,10 @@
 package fr.tcd;
 
-import fr.tcd.input.DataReader;
-import fr.tcd.result.ResultWriter;
-
 import java.util.stream.Stream;
+
+import fr.tcd.input.DataReader;
+import fr.tcd.input.Input;
+import fr.tcd.result.ResultWriter;
 
 public class Main {
 
@@ -13,7 +14,7 @@ public class Main {
 
     private static void runOnDataset(final String dataset) {
         try {
-            final Object data = DataReader.load(dataset);
+            final Input data = DataReader.load(dataset);
             final Object result = Algo.run(data);
             ResultWriter.write(dataset, result);
         } catch (final Exception e) {
