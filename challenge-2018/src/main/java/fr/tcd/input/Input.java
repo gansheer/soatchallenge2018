@@ -1,13 +1,20 @@
 package fr.tcd.input;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Input {
-	public int c;
-	public int h;
-	public int p;
-	public int w;
-	public List<Info> infos = new ArrayList<>();
+	public final int c;
+	public final int h;
+	public final int p;
+	public final int w;
+	public final List<Info> infos;
+
+	public Input(final int c, final int h, final int p, final int w, final List<Info> infos) {
+		this.c = c;
+		this.h = h;
+		this.p = p;
+		this.w = w;
+		this.infos = infos;
+	}
 }
 

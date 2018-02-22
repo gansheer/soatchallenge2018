@@ -1,9 +1,15 @@
 package fr.tcd.input;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Info {
-	public String nom;
-	public List<Integer> valeurs = new ArrayList<>();
+
+    public final String nom;
+
+    public final List<Integer> valeurs;
+
+    public Info(final String nom, final List<Integer> valeurs) {
+        this.nom = nom;
+        this.valeurs = valeurs;
+    }
 }
