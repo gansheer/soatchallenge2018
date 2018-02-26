@@ -15,14 +15,18 @@ import fr.tcd.result.ResultLine;
 public class Algo {
 
 	public static List<ResultLine> run(final Input data) {
-
+		System.out.println(data);
 		List<Info> infos = data.infos.stream().sorted(new Comparator<Info>() {
 			@Override
 			public int compare(Info o1, Info o2) {
 				return o1.valeurs.get(data.h - 1).compareTo(o2.valeurs.get(data.h - 1));
 			}
 
-		}).filter(info -> info.valeurs.get(data.h - 2)+4 < info.valeurs.get(data.h - 1)).collect(Collectors.toList());
+		})
+				.filter(info -> !info.isDescendingFlagMoney())
+				.filter(info -> info.isAscendingFlagMoney())
+				.filter(info -> info.valeurs.get(data.h - 2) < info.valeurs.get(data.h - 1))
+				.collect(Collectors.toList());
 
 		List<ResultLine> results = new ArrayList<>();
 		int div = 2;

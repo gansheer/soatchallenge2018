@@ -29,7 +29,7 @@ public class Input {
                 ", h=" + h +
                 ", p=" + p +
                 ", w=" + w +
-                ", infos=" + infos +
+                "\n, infos=" + infos +
                 '}';
     }
 }
